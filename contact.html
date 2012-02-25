@@ -1,0 +1,114 @@
+<html>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28023604-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+	function obscure( d, n ) {
+		document.write( n + '&#64;' + d);
+	}
+</script>
+
+	<title>Charlton | Contact</title>
+	<link rel="stylesheet" href="css/default.css" type="text/css" media="screen" charset="utf-8" />
+	
+	<body>
+		<center>		
+		<div id="name"><img src="images/name.jpg" width="300px"/></div>
+
+		<table id="buttons">
+			<tr>
+				<td>
+					<div>
+						<a href="/~csoesant" onmouseover="document.ABOUT.src='images/buttons/about_hover.jpg'"
+						onmouseout="document.ABOUT.src='images/buttons/about.jpg'"
+						onmousedown="document.ABOUT.src='images/buttons/about_active.jpg'"
+						>
+						<img  name="ABOUT" src="images/buttons/about.jpg" width="140px"/></a>
+					</div>
+				</td>
+				<td>
+						<a href="projects.html" onmouseover="document.PROJECTS.src='images/buttons/projects_hover.jpg'"
+						onmouseout="document.PROJECTS.src='images/buttons/projects.jpg'"
+						onmousedown="document.PROJECTS.src='images/buttons/projects_active.jpg'"
+						>
+						<img  name="PROJECTS" src="images/buttons/projects.jpg" width="140px"/></a>
+				</td>
+				<td>
+						<img  name="CONTACT" src="images/buttons/contact_active.jpg" width="140px"/></a>
+				</td>
+				<td>					 
+						<a href="soesanto_resume.pdf" target="_blank" onmouseover="document.RESUME.src='images/buttons/resume_hover.jpg'"
+						onmouseout="document.RESUME.src='images/buttons/resume.jpg'"
+						onmousedown="document.RESUME.src='images/buttons/resume_active.jpg'"
+						>
+						<img  name="RESUME" src="images/buttons/resume.jpg" width="140px"/></a>
+				</td>
+			</tr>
+		</table>
+				<table class="contents container">		
+			<tr>
+				<td>
+					<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+						<script>
+						new TWTR.Widget({
+							version: 2,
+							type: 'profile',
+							rpp: 4,
+							interval: 30000,
+							width: 250,
+							height: 300,
+							theme: {
+								shell: {
+									background: '#000000',
+									color: '#ffffff'
+								},
+								tweets: {
+									background: '#ffffff',
+									color: '#3d3d3d',
+									links: '#2f9e00'
+								}
+							},
+							features: {
+								scrollbar: false,
+								loop: false,
+								live: true,
+								behavior: 'all'
+							}
+						}).render().setUser('charltonys').start();
+						</script>
+				</td>
+				<td>
+				<table id="contactinfo">
+					<tr><span id="getatme"><center>how to <b>get at me!</b><center></span></tr>
+					<tr>
+						<td>
+							<b>email:<br />
+							twitter:<br />
+							linkedin:<br />
+							facebook:<br />
+							</b>
+						</td>
+						<td>
+							<script>obscure('cs.stanford.edu', 'charlton')</script> <br />
+							<a href="https://twitter.com/charltonys"  target="_blank">@charltonys</a><br />
+							<a href="http://www.linkedin.com/in/charltonsoesanto" target="_blank">linkedin.com/in/charltonsoesanto</a><br />
+							<a href="https://www.facebook.com/charltonsoesanto" target="_blank">facebook.com/charltonsoesanto</a><br />
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		
+		</center>
+	</body>
+</html>

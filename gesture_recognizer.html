@@ -1,0 +1,547 @@
+<html>
+
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+<link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+<link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
+
+<body>
+
+    <header class="jumbotron masthead" id="overview">
+        <div class="inner">
+            <div class="container">
+                <h1>Interaction Design Studio</h1>
+                <p class="lead">
+                    CS247 Project 3: Gesture Controller
+                </p>
+                <p>
+                    <strong>
+                        Blake Carpenter &middot; Kenny Kao &middot; Charlton Soesanto &middot; Arda Kara &middot; S&eacute;bastien Robaszkiewicz
+                    </strong>
+                </p>
+            </div><!-- /container -->
+        </div>
+    </header>
+
+    <div class="container">
+				
+				 <!-- Selected ideas
+        ================================================== -->
+        <section id="selected-ideas">
+            <div class="page-header">
+                <h1>Selected ideas <small>Let's have a thorough look at them</small></h1>
+            </div>
+
+            <h2>Application area: Dance/DJ</h2>
+
+            <p>We chose the application area of the entertainment in general, and more specifically, music, Djs, dancing, parties. Let's see how the gestures we selected can fit into this environment</p>
+
+            <h2>Gestures</h2>
+
+            <!-- Kamehameha -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Kamehameha</h3>
+                    <h4>Use case</h4>
+                    Let's project ourselves in the near future, when Kinect will be able to track several persons at a time. Let's also say that the DJ has proposed 4 possible songs for the next track that he displays on the top of the screen behind him. Then, dancers can vote for the next song. In order to vote, the dancer must do the following:
+                    <ul>
+                        <li>by dancing and moving their bodies people can earn points</li>
+                        <li>dancers can spend their points in the energy ball (made famous in Dragon Ball Z); the more points they spend, the bigger the ball becomes, and the more likely the ball is to hit the target</li>
+						<li>the users will not lose points if they miss the song choices</li>
+					</ul>
+					<h4>Rationale</h4>
+					<ul>
+						<li>Putting both hands together at the center of your body is not a natural or common position for a dancer, so we won't have to worry about people accidentally triggering the system</li>
+						<li>A projectile selection method allows dancers to vote from anywhere, without navigating the dance floor</li>
+						<li>The range is ball size allows the user to specify how many points the user wants to allocate for a particular song</li>
+						<li>This method always allows for an easy to cancel selection and diffusing the energy ball by moving the hands apart </li>
+					</ul>
+                    <h4>The gesture in detail</h4>
+                    There are 4 steps for this gesture:
+                    <ul>
+                        <li>charging the energy ball: the hands are together, and close to the stomach (on the x, y, z axis), and the arms are not straight</li>
+                        <li>moving the ball at a given charge status (before shooting): the hands are together, but far from the body (on the z axis), and the arms are not straight</li>
+                        <li>throwing the ball: the hands are together and the arms are straight in the direction you want the ball to go</li>
+                        <li>rest: any other configuration</li>
+                    </ul>
+                    These steps are (time) related as shown on the second picture on the right.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/kamehameha.jpg">
+                                <img class="thumbnail" src="photos/kamehameha.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="photos/diagram.jpg">
+                                <img class="thumbnail" src="photos/diagram.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Little circles -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Color Adjustment Knob</h3>
+
+                    <h4>Use case</h4>
+                    The DJ wants to control the lights as he is doing his mix. We can imagine that the targets are potentiometers that can set the following characteristics:
+                    <ul>
+                        <li>the amount of red lights</li>
+                        <li>the amount of green lights</li>
+                        <li>the amount of blue lights</li>
+                        <li>the brightness</li>
+                    </ul>
+                    This allows the DJ to change the music at the turn-tables, control the colors on the dance floor in the air all in the same place.
+					<h4>Rationale</h4>
+					<ul>
+						<li>We are not limited by the range of motion. Specifically, a horizontal or vertical bar would require an arm to reach the length of the bar or require an activation gesture</li>
+						<li>The C# built-in library provides HSL; however, the L value¡¦s meaning is not intuitive because it goes from black to the color to white, while ideally it would increase the color¡¦s brightness. </li>
+						<li> The HSV color space addresses brightness which is intuitive but requires extra processing which, after implementation and testing, resulted in significant lag. </li>				
+					</ul>	
+					<h4>The gesture in detail</h4>
+					The user places his/her hand inside one or more of the circles labeled "R", "G", "B", or "Brightness". To increase the color or brightness, the user will move his or her hand clock-wise around the center of the circle. Likewise, a counter-clockwise movement will decrease the magnitude of the color or brightness. 
+                    <h4>To go further</h4>
+                    The future applications of gesture-controlled color adjustments are very broad.
+                    <ul>
+                        <li>to stick to this area, we could also imagine that the targets are LPs and that the DJ plays with them with little circles, exactly as he would have done in the real world; this could also be a way of selecting the time in the track</li>
+                        <li>in some other areas, we could think of a painter who is making his mix of colors as he would have done with a real paint palette</li>
+                    </ul>
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/little-circles.jpg">
+                                <img class="thumbnail" src="photos/little-circles.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Video demo
+        ================================================== -->
+        <section id="selected-ideas">
+            <div class="page-header">
+                <h1>Video demo <small>Move your body!</small></h1>
+            </div>
+            <iframe width="560" height="315" src="http://www.youtube.com/embed/JrvZFau-3cE" frameborder="0" allowfullscreen></iframe>
+        </section>
+
+
+        <!-- Brainstorming
+        ================================================== -->
+        <section id="brainstorming">
+            <div class="page-header">
+            		<h1> The Process: </h1>
+                <h2>Brainstorming <small>First round and raw ideas</small></h2>
+            </div>
+
+            <div class="row">
+                <div class="span16">
+                    Our first brainstorming session ended with the two following white boards, one for the selection gestures and one for the application areas.
+                </div>
+            </div>
+
+            <div class="span16">
+                <ul class="media-grid">
+                    <li>
+                        <a href="photos/brainstorm-gesture.jpg">
+                            <img class="thumbnail" src="photos/brainstorm-gesture.jpg" width="450px" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="photos/brainstorm-area.jpg">
+                            <img class="thumbnail" src="photos/brainstorm-area.jpg" width="450px" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <h2>Selection gestures</h2>
+
+            <!-- Bow & arrow -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Bow &amp; arrow</h3>
+                    <span class="label">Hand</span></br>
+                    One could mime archery movements:
+                    <ul>
+                        <li>starting position: hands closed, one behind the other</li>
+                        <li>step 1: bend</li>
+                        <li>step 2: release (the back hand opens)</li>
+                    </ul>
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/bow-and-arrow.jpg">
+                                <img class="thumbnail" src="photos/bow-and-arrow.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Fishing rod -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Fishing rod</h3>
+                    <span class="label">Hand</span></br>
+                    One could throw a virtual fishing rod in the direction of the target he wants to select; then, to bring it back to him, he could reel in.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/fishing-rod.jpg">
+                                <img class="thumbnail" src="photos/fishing-rod.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Throw a ball -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Throw a ball</h3>
+                    <span class="label">Hand</span></br>
+                    One could mime the movement of throwing a virtual ball at a target.
+                </div>
+                <div class="span4">
+                </div>
+            </div>
+
+            <!-- Kick a ball -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Kick a ball</h3>
+                    <span class="label warning">Foot</span></br>
+                    One could mime the movement of kicking a virtual ball at a target. However, it may be hard to be accurate in the direction.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/kick.jpg">
+                                <img class="thumbnail" src="photos/kick.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tap & grab -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Tap &amp; grab</h3>
+                    <span class="label">Hand</span> <span class="label success">Multiple selection</span></br>
+                    One could tap on the targets he wants to select (hands opened); in order to grab them, he would close his hand, and move the selected targets where he wants to.</br>
+                    <strong>Variation:</strong> instead of closing his hand, the user could make a more violent move (hit instead of tap, with the hand still opened) to grab the targets/objects.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/tap-and-grab.jpg">
+                                <img class="thumbnail" src="photos/tap-and-grab.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hold on. Cheese. Use yourself! -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Hold on. Cheese. Use yourself!</h3>
+                    <span class="label notice">Other parts of the body</span></br>
+                    Here is the process:
+                    <ul>
+                        <li>one could hold a position during 3 seconds</li>
+                        <li>the Kinects takes a picture of him/her</li>
+                        <li>then the person can grab the picture of himself by the feet, and use it to reach objects on the very top of the screen</li>
+                    </ul>
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/use-yourself.jpg">
+                                <img class="thumbnail" src="photos/use-yourself.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Kamehameha -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Kamehameha</h3>
+                    <span class="label">Hand</span> <span class="label important">Gradient</span></br>
+                    One could join his hands in order to charge an energy ball. When he decides, he can release it by holding out his arms, pointing at the direction of the target.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/kamehameha.jpg">
+                                <img class="thumbnail" src="photos/kamehameha.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Body controller -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Body controller</h3>
+                    <span class="label notice">Other parts of the body</span></br>
+                    One could use his body as a broomstick in order to control, let's say, a helicopter. A target (in the 3D environment) would be selected if the helicopter hits it.
+                </div>
+                <div class="span4">
+                </div>
+            </div>
+
+            <!-- Little circles -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Little circles</h3>
+                    <span class="label">Hand</span> <span class="label important">Gradient</span></br>
+                    One could put his hand on the target he wants to select. He would then make tiny circles with his hand on that target to "charge" it (from 0 to 100%). For example, clockwise circles could increase the percentage of the selected amount of that target; anti-clockwise circles would decrease it.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/little-circles.jpg">
+                                <img class="thumbnail" src="photos/little-circles.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Virtual slider -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Virtual slider</h3>
+                    <span class="label">Hand</span> <span class="label important">Gradient</span></br>
+                    One could use one hand to preselect a target. He would use his other hand to determine the amount he wants to select from that target: a vertical movement of his arm would make this number vary from 0 to 100%.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/virtual-slider.jpg">
+                                <img class="thumbnail" src="photos/virtual-slider.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Stomp -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Stomp</h3>
+                    <span class="label">Hand</span> <span class="label warning">Foot</span></br>
+                    One could use one hand to preselect a target. If he really wants to select it, he would stomp wth one foot.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/stomp.jpg">
+                                <img class="thumbnail" src="photos/stomp.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Jump -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Jump</h3>
+                    <span class="label warning">Foot</span></br>
+                    If the targets are on the bottom of the screen, one could walk through them and jump over the one he wants to select.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/jump.jpg">
+                                <img class="thumbnail" src="photos/jump.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Selection zone -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Selection zone</h3>
+                    <span class="label warning">Foot</span></br>
+                    One could have a selection zone at disposal as soon as he closes his hands, like if he was grabbing two handles (in the diagonal). Then, he would control the size of the selection zone by moving his hands, that define the selected area.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/selection-zone.jpg">
+                                <img class="thumbnail" src="photos/selection-zone.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Run & scroll -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Run &amp; scroll</h3>
+                    <span class="label warning">Foot</span></br>
+                    For a list displayed horizontally and in perspective (in the style of Guitar Hero) one could run in order to scroll in the list: as he is making steps, the items of the list are following one another.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/run.jpg">
+                                <img class="thumbnail" src="photos/run.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pelvic thurst -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Pelvic thrust</h3>
+                    <span class="label notice">Other parts of the body</span></br>
+                    One could select an item by making a pelvic thrust toward it.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/pelvic-thurst.jpg">
+                                <img class="thumbnail" src="photos/pelvic-thrust.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Balance -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Balance</h3>
+                    <span class="label">Hands</span></br>
+                    One could spread his hands around the height of his shoulders, as if he were holding a rod on which there would be a ball. By lowering one hand or the other, he could move the virtual ball until it reaches the place of the object he wants to select. Then, in order to select the item, he just has to stop the ball by putting his hands at the same (vertical) level.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/balance.jpg">
+                                <img class="thumbnail" src="photos/balance.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Draw the selection -->
+            <div class="row">
+                <div class="span12">
+                    <h3>Draw the selection</h3>
+                    <span class="label">Hands</span> <span class="label success">Multiple selection</span></br>
+                    One could use his hand to draw the selection area he wants. In order to make the difference between the selection gesture and a random move, he would use his second hand. If this hand is opened and at the level of his shoulders, he draws the selection zone; if he closes his hand, he grabs the selection; otherwise, nothing happens.
+                </div>
+                <div class="span4">
+                    <ul class="media-grid">
+                        <li>
+                            <a href="photos/draw-selection.jpg">
+                                <img class="thumbnail" src="photos/draw-selection.jpg" width="210px" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Application areas</h2>
+
+            There were a lot of application areas that we were able to classify into different categories.
+
+            <h3>Sector</h3>
+            <ul>
+                <li>Travel</li>
+                <li>Work</li>
+                <li>Entertainment</li>
+                <li>Commerce</li>
+                <li>Sports</li>
+            </ul>
+
+            <h3>Places</h3>
+            <ul>
+                <li>
+                    Home
+                    <ul>
+                        <li>living room</li>
+                        <li>kitchen/cooking</li>
+                        <li>bedroom/sleep (lights, etc.)</li>
+                    </ul>
+                </li>
+                <li>Office</li>
+                <li>
+                    Car
+                    <ul>
+                        <li>for drivers (standardized commands on every car so that drivers don't search for a feature while they are driving)</li>
+                        <li>back seat peeps (who could command the radio, etc.)</li>
+                    </ul>
+                </li>
+                <li>Wide spaces, outdoor</li>
+            </ul>
+
+            <h3>Action</h3>
+            <ul>
+                <li>
+                    Dirty hand people
+                    <ul>
+                        <li>surgeons</li>
+                        <li>chefs</li>
+                        <li>artists</li>
+                        <li>musicians</li>
+                        <li>gardeners</li>
+                        <li>car mechanics</li>
+                    </ul>
+                </li>
+                <li>Occupied hand people</li>
+                <li>Disabled people</li>
+            </ul>
+
+            <h3>Purpose</h3>
+            <ul>
+                <li>Select multiple objects</li>
+                <li>Gradient selection</li>
+            </ul>
+
+        </section>
+
+
+    </div>
+    
+    <footer class="footer">
+          <div class="container">
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>
+              <strong>CS247 Project 3</strong><br />
+              Blake Carpenter &middot; Kenny Kao &middot; Charlton Soesanto &middot; Arda Kara &middot; S&eacute;bastien Robaszkiewicz
+            </p>
+          </div>
+        </footer>
+
+
+</body>
+</html>
